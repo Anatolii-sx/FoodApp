@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		9C37558828F8A69800787069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37558728F8A69800787069 /* AppDelegate.swift */; };
-		9C37558C28F8A69800787069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37558B28F8A69800787069 /* ViewController.swift */; };
+		9C37558C28F8A69800787069 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37558B28F8A69800787069 /* MainViewController.swift */; };
 		9C37558F28F8A69800787069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C37558D28F8A69800787069 /* Main.storyboard */; };
 		9C37559128F8A69A00787069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C37559028F8A69A00787069 /* Assets.xcassets */; };
 		9C37559428F8A69A00787069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C37559228F8A69A00787069 /* LaunchScreen.storyboard */; };
+		9C3755A528F9F09B00787069 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755A328F9F09B00787069 /* MenuCell.swift */; };
+		9C3755A628F9F09B00787069 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3755A428F9F09B00787069 /* MenuCell.xib */; };
+		9C3755A928FA0B0B00787069 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755A828FA0B0B00787069 /* NetworkManager.swift */; };
+		9C3755AB28FA0B1A00787069 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755AA28FA0B1A00787069 /* Dish.swift */; };
+		9C3755AE28FAA20200787069 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3755AD28FAA20100787069 /* SF-UI-Display-Regular.otf */; };
+		9C3755B028FAA2DB00787069 /* sf-ui-display-semibold-58646eddcae92.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3755AF28FAA2DB00787069 /* sf-ui-display-semibold-58646eddcae92.otf */; };
+		9C3755B228FAC76000787069 /* FoodTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755B128FAC76000787069 /* FoodTypeCell.swift */; };
+		9C3755B428FAE28700787069 /* sf-ui-display-bold-58646a511e3d9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3755B328FAE28600787069 /* sf-ui-display-bold-58646a511e3d9.otf */; };
+		9C3755B628FAEF3D00787069 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755B528FAEF3D00787069 /* BannerCell.swift */; };
+		9C3755B828FB2AC900787069 /* FoodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755B728FB2AC900787069 /* FoodImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9C37558428F8A69800787069 /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C37558728F8A69800787069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C37558B28F8A69800787069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C37558B28F8A69800787069 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9C37558E28F8A69800787069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C37559028F8A69A00787069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C37559328F8A69A00787069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C37559528F8A69A00787069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C3755A328F9F09B00787069 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		9C3755A428F9F09B00787069 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		9C3755A828FA0B0B00787069 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9C3755AA28FA0B1A00787069 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		9C3755AD28FAA20100787069 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		9C3755AF28FAA2DB00787069 /* sf-ui-display-semibold-58646eddcae92.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-semibold-58646eddcae92.otf"; sourceTree = "<group>"; };
+		9C3755B128FAC76000787069 /* FoodTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeCell.swift; sourceTree = "<group>"; };
+		9C3755B328FAE28600787069 /* sf-ui-display-bold-58646a511e3d9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-bold-58646a511e3d9.otf"; sourceTree = "<group>"; };
+		9C3755B528FAEF3D00787069 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		9C3755B728FB2AC900787069 /* FoodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +76,11 @@
 			children = (
 				9C37559C28F8A80000787069 /* App */,
 				9C37559B28F8A7F100787069 /* ViewControllers */,
+				9C3755A028F9E95000787069 /* Views */,
 				9C37559E28F8A82100787069 /* Storyboards */,
+				9C3755A728FA0A4800787069 /* Models */,
+				9C37559F28F9E6E400787069 /* Services */,
+				9C3755AC28FAA1A900787069 /* Fonts */,
 				9C37559D28F8A80700787069 /* Resources */,
 			);
 			path = FoodApp;
@@ -65,7 +89,7 @@
 		9C37559B28F8A7F100787069 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C37558B28F8A69800787069 /* ViewController.swift */,
+				9C37558B28F8A69800787069 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -94,6 +118,44 @@
 				9C37559228F8A69A00787069 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9C37559F28F9E6E400787069 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C3755A828FA0B0B00787069 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C3755A028F9E95000787069 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C3755B528FAEF3D00787069 /* BannerCell.swift */,
+				9C3755B128FAC76000787069 /* FoodTypeCell.swift */,
+				9C3755A328F9F09B00787069 /* MenuCell.swift */,
+				9C3755A428F9F09B00787069 /* MenuCell.xib */,
+				9C3755B728FB2AC900787069 /* FoodImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C3755A728FA0A4800787069 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C3755AA28FA0B1A00787069 /* Dish.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C3755AC28FAA1A900787069 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9C3755AD28FAA20100787069 /* SF-UI-Display-Regular.otf */,
+				9C3755AF28FAA2DB00787069 /* sf-ui-display-semibold-58646eddcae92.otf */,
+				9C3755B328FAE28600787069 /* sf-ui-display-bold-58646a511e3d9.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +217,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C37559428F8A69A00787069 /* LaunchScreen.storyboard in Resources */,
+				9C3755B028FAA2DB00787069 /* sf-ui-display-semibold-58646eddcae92.otf in Resources */,
 				9C37559128F8A69A00787069 /* Assets.xcassets in Resources */,
+				9C3755B428FAE28700787069 /* sf-ui-display-bold-58646a511e3d9.otf in Resources */,
+				9C3755AE28FAA20200787069 /* SF-UI-Display-Regular.otf in Resources */,
+				9C3755A628F9F09B00787069 /* MenuCell.xib in Resources */,
 				9C37558F28F8A69800787069 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C37558C28F8A69800787069 /* ViewController.swift in Sources */,
+				9C3755B628FAEF3D00787069 /* BannerCell.swift in Sources */,
+				9C3755A928FA0B0B00787069 /* NetworkManager.swift in Sources */,
+				9C3755AB28FA0B1A00787069 /* Dish.swift in Sources */,
+				9C37558C28F8A69800787069 /* MainViewController.swift in Sources */,
+				9C3755B828FB2AC900787069 /* FoodImageView.swift in Sources */,
 				9C37558828F8A69800787069 /* AppDelegate.swift in Sources */,
+				9C3755A528F9F09B00787069 /* MenuCell.swift in Sources */,
+				9C3755B228FAC76000787069 /* FoodTypeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +395,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -352,8 +425,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
