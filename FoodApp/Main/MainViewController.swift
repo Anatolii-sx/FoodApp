@@ -7,41 +7,37 @@
 
 import UIKit
 
+// MARK: - MainViewControllerProtocol (Connection Presenter -> View)
+protocol MainViewControllerProtocol: AnyObject {
+    func updateTableViewSections(_ index: Int)
+    func scrollToSection(_ section: Int)
+    func updateFoodTypeCollectionView()
+}
+
 class MainViewController: UIViewController {
 
-    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
-    
-    private var foodTypes = [
-        "Пицца",
-        "Бургеры",
-        "Сендвичи",
-        "Десерты",
-        "Напитки"
-    ]
-    
-    private var banners = [
-        "Баннер_1",
-        "Баннер_2"
-    ]
-
-    private var dishes: [[Dish]] = []
-    private var selectedFoodType = 0
-
+    // MARK: - IBOutlets
     @IBOutlet private weak var bannerCollectionView: UICollectionView!
     @IBOutlet private weak var foodTypeCollectionView: UICollectionView!
     @IBOutlet private weak var menuTableView: UITableView!
+    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
     
+    // MARK: - Private Properties
+    private var presenter: MainPresenterProtocol!
+    
+    // MARK: - Methods Of ViewController's Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupFoodTypeCollectionView()
+        presenter = MainPresenter(view: self)
+        setupCollectionsView()
         setupMenuTableView()
-        getMenu()
+        presenter.getMenu()
     }
 }
 
+// MARK: - Banners and Food Types (Collection View DataSource and Delegate)
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    private func setupFoodTypeCollectionView() {
+    private func setupCollectionsView() {
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
         foodTypeCollectionView.dataSource = self
@@ -49,7 +45,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView == bannerCollectionView ? banners.count : foodTypes.count
+        collectionView == bannerCollectionView ? presenter.banners.count : presenter.foodTypes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +58,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 return UICollectionViewCell()
             }
             
-            let banner = banners[indexPath.row]
+            let banner = presenter.banners[indexPath.row]
             bannerCell.configure(banner: banner)
             cell = bannerCell
         
@@ -72,10 +68,10 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 return UICollectionViewCell()
             }
             
-            let foodType = foodTypes[indexPath.row]
+            let foodType = presenter.foodTypes[indexPath.row]
             foodTypeCell.configure(
                 foodType: foodType,
-                isSelected: selectedFoodType == indexPath.row ? true : false
+                isSelected: presenter.selectedFoodType == indexPath.row ? true : false
             )
             cell = foodTypeCell
         }
@@ -85,16 +81,14 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == foodTypeCollectionView {
-            selectedFoodType = indexPath.row
-            collectionView.reloadData()
-            let indexPathTV = IndexPath(row: 0, section: selectedFoodType)
-            menuTableView.scrollToRow(at: indexPathTV, at: .top, animated: true)
+            presenter.foodTypeTapped(indexPath.row)
         } else if collectionView == bannerCollectionView {
             performSegue(withIdentifier: "FromBannerToDescription", sender: nil)
         }
     }
 }
 
+// MARK: - Menu (Table View DataSource and Delegate)
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     private func setupMenuTableView() {
         menuTableView.dataSource = self
@@ -103,21 +97,19 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dishes.count
+        return presenter.dishes.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dishes[section].count
+        presenter.dishes[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else {
             return UITableViewCell()
         }
-        
-        let dish = dishes[indexPath.section][indexPath.row]
+        let dish = presenter.dishes[indexPath.section][indexPath.row]
         cell.configure(dish: dish)
-
         return cell
     }
     
@@ -129,50 +121,38 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if menuTableView == scrollView {
             let y = scrollView.contentOffset.y
-            
             let swipingDown = y <= 0
             let shouldSnap = y > 30
             
             UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
                 self.bannerCollectionView.alpha = swipingDown ? 1 : 0
-                
                 self.headerViewTopConstraint.constant = shouldSnap
                 ? -(self.bannerCollectionView.frame.height + 44)
                 : 0
-                
                 self.view.layoutIfNeeded()
             }
             
             // Апдейт выбранной группы меню при скролле
             let visibleIndices = menuTableView.indexPathsForVisibleRows ?? []
-            let lowestVisibleSection = visibleIndices.map({$0.section}).min() ?? 0
-            selectedFoodType = lowestVisibleSection
-            foodTypeCollectionView.reloadData()
+            let visibleSection = visibleIndices.map({$0.section}).min() ?? 0
+            presenter.userScrolling(visibleSection)
         }
     }
 }
 
-extension MainViewController {
-    private func getMenu() {
-        setEmptyMenu()
-        for (index, _) in NetworkManager.shared.urls.enumerated() {
-            NetworkManager.shared.downloadDishes(url: NetworkManager.shared.urls[index]) { result in
-                switch result {
-                case .success(let dishes):
-                    self.dishes[index] = dishes
-                    self.menuTableView.reloadSections([index], with: .automatic)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+// MARK: - Realization MainViewControllerProtocol Methods (Connection Presenter -> View)
+extension MainViewController: MainViewControllerProtocol {
+    func updateFoodTypeCollectionView() {
+        foodTypeCollectionView.reloadData()
+    }
+
+    func scrollToSection(_ section: Int) {
+        let indexPathTV = IndexPath(row: 0, section: section)
+        menuTableView.scrollToRow(at: indexPathTV, at: .top, animated: true)
     }
     
-    private func setEmptyMenu() {
-        let emptyDish = Dish(id: nil, name: nil, dsc: nil, price: nil, rate: nil, img: nil)
-        for _ in 0..<NetworkManager.shared.urls.count {
-            dishes.append([emptyDish])
-        }
+    func updateTableViewSections(_ index: Int) {
+        menuTableView.reloadSections([index], with: .automatic)
     }
 }
 

@@ -22,6 +22,7 @@
 		9C3755B428FAE28700787069 /* sf-ui-display-bold-58646a511e3d9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3755B328FAE28600787069 /* sf-ui-display-bold-58646a511e3d9.otf */; };
 		9C3755B628FAEF3D00787069 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755B528FAEF3D00787069 /* BannerCell.swift */; };
 		9C3755B828FB2AC900787069 /* FoodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755B728FB2AC900787069 /* FoodImageView.swift */; };
+		9C3755BB28FB644E00787069 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3755BA28FB644E00787069 /* MainPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9C3755B328FAE28600787069 /* sf-ui-display-bold-58646a511e3d9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-bold-58646a511e3d9.otf"; sourceTree = "<group>"; };
 		9C3755B528FAEF3D00787069 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		9C3755B728FB2AC900787069 /* FoodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageView.swift; sourceTree = "<group>"; };
+		9C3755BA28FB644E00787069 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				9C37559C28F8A80000787069 /* App */,
-				9C37559B28F8A7F100787069 /* ViewControllers */,
-				9C3755A028F9E95000787069 /* Views */,
+				9C37559B28F8A7F100787069 /* Main */,
 				9C37559E28F8A82100787069 /* Storyboards */,
 				9C3755A728FA0A4800787069 /* Models */,
 				9C37559F28F9E6E400787069 /* Services */,
@@ -86,12 +87,14 @@
 			path = FoodApp;
 			sourceTree = "<group>";
 		};
-		9C37559B28F8A7F100787069 /* ViewControllers */ = {
+		9C37559B28F8A7F100787069 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				9C37558B28F8A69800787069 /* MainViewController.swift */,
+				9C3755BA28FB644E00787069 /* MainPresenter.swift */,
+				9C3755A028F9E95000787069 /* Views */,
 			);
-			path = ViewControllers;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		9C37559C28F8A80000787069 /* App */ = {
@@ -237,6 +240,7 @@
 				9C3755A928FA0B0B00787069 /* NetworkManager.swift in Sources */,
 				9C3755AB28FA0B1A00787069 /* Dish.swift in Sources */,
 				9C37558C28F8A69800787069 /* MainViewController.swift in Sources */,
+				9C3755BB28FB644E00787069 /* MainPresenter.swift in Sources */,
 				9C3755B828FB2AC900787069 /* FoodImageView.swift in Sources */,
 				9C37558828F8A69800787069 /* AppDelegate.swift in Sources */,
 				9C3755A528F9F09B00787069 /* MenuCell.swift in Sources */,

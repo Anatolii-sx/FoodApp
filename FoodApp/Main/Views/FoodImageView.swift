@@ -44,5 +44,4 @@ class FoodImageView: UIImageView {
         }
         return nil
     }
-
 }
